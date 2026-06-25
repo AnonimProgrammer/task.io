@@ -9,9 +9,10 @@ import type { TeamMember } from "@/lib/types";
 type TeamBarProps = {
   members: TeamMember[];
   onAddMember: (data: { fullName: string; email: string }) => Promise<void>;
+  onRemoveMember: (memberId: string) => Promise<void>;
 };
 
-export function TeamBar({ members, onAddMember }: TeamBarProps) {
+export function TeamBar({ members, onAddMember,onRemoveMember, }: TeamBarProps) {
   const [membersOpen, setMembersOpen] = useState(false);
   const [addOpen, setAddOpen] = useState(false);
 
@@ -72,6 +73,7 @@ export function TeamBar({ members, onAddMember }: TeamBarProps) {
         open={membersOpen}
         members={members}
         onClose={() => setMembersOpen(false)}
+        onRemoveMember={onRemoveMember}
       />
       <AddMemberModal
         open={addOpen}
