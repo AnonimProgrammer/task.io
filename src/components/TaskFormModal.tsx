@@ -132,7 +132,7 @@ export function TaskFormModal({
     <Modal open={open} title={title} onClose={onClose}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-zinc-700">
+          <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
             Title
           </span>
           <input
@@ -140,13 +140,13 @@ export function TaskFormModal({
             onChange={(event) =>
               setForm((current) => ({ ...current, title: event.target.value }))
             }
-            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
             placeholder="Task title"
           />
         </label>
 
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-zinc-700">
+          <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
             Summary
           </span>
           <input
@@ -157,15 +157,15 @@ export function TaskFormModal({
                 summary: event.target.value,
               }))
             }
-            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
             placeholder="Short summary"
           />
         </label>
 
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-zinc-700">
+          <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
             Description{" "}
-            <span className="font-normal text-zinc-400">(optional)</span>
+            <span className="font-normal text-zinc-400 dark:text-zinc-500">(optional)</span>
           </span>
           <textarea
             value={form.description}
@@ -176,7 +176,7 @@ export function TaskFormModal({
               }))
             }
             rows={3}
-            className="w-full resize-none rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+            className="w-full resize-none rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
             placeholder="Additional details"
           />
         </label>
@@ -191,7 +191,7 @@ export function TaskFormModal({
 
         <div className="grid grid-cols-2 gap-3">
           <label className="block">
-            <span className="mb-1 block text-sm font-medium text-zinc-700">
+            <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
               Due time
             </span>
             <input
@@ -203,12 +203,12 @@ export function TaskFormModal({
                   dueAt: event.target.value,
                 }))
               }
-              className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+              className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
             />
           </label>
 
           <label className="block">
-            <span className="mb-1 block text-sm font-medium text-zinc-700">
+            <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
               Priority
             </span>
             <select
@@ -219,10 +219,10 @@ export function TaskFormModal({
                   priority: event.target.value as TaskPriority,
                 }))
               }
-              className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+              className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
             >
               {TASK_PRIORITIES.map((priority) => (
-                <option key={priority.value} value={priority.value}>
+                <option key={priority.value} value={priority.value} className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50">
                   {priority.label}
                 </option>
               ))}
@@ -231,7 +231,7 @@ export function TaskFormModal({
         </div>
 
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-zinc-700">
+          <span className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
             Status
           </span>
           <select
@@ -242,30 +242,30 @@ export function TaskFormModal({
                 status: event.target.value as TaskStatus,
               }))
             }
-            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-500"
+            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors"
           >
             {TASK_STATUSES.map((status) => (
-              <option key={status.value} value={status.value}>
+              <option key={status.value} value={status.value} className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50">
                 {status.label}
               </option>
             ))}
           </select>
         </label>
 
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
 
         <div className="flex justify-end gap-2 pt-2">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
+            className="rounded-lg border border-zinc-300 dark:border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={submitting}
-            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-60"
+            className="rounded-lg bg-black dark:bg-zinc-100 px-4 py-2 text-sm font-medium text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-60 transition-colors"
           >
             {submitting ? "Saving…" : submitLabel}
           </button>

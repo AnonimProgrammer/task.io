@@ -27,7 +27,7 @@ export function MemberAvatar({
       type={onClick ? "button" : undefined}
       title={title}
       onClick={onClick}
-      className={`inline-flex shrink-0 items-center justify-center rounded-full border-2 border-black bg-black font-semibold text-white ${sizeClasses[size]} ${onClick ? "cursor-pointer transition-opacity hover:opacity-80" : ""} ${isEmpty ? "border-zinc-300 bg-white" : ""} ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center rounded-full border-2 border-black dark:border-zinc-950 bg-black dark:bg-zinc-950 font-semibold text-white dark:text-zinc-200 ${sizeClasses[size]} ${onClick ? "cursor-pointer transition-all hover:opacity-80" : ""} ${isEmpty ? "border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800" : ""} ${className}`}
     >
       {!isEmpty && initials}
     </Component>

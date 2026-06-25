@@ -171,7 +171,7 @@ export function TaskBoard() {
 
   if (loading) {
     return (
-      <div className="flex flex-1 items-center justify-center text-sm text-zinc-500">
+      <div className="flex flex-1 items-center justify-center text-sm text-zinc-500 dark:text-zinc-400">
         Loading board…
       </div>
     );
@@ -179,7 +179,7 @@ export function TaskBoard() {
 
   if (error) {
     return (
-      <div className="mx-auto max-w-lg rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+      <div className="mx-auto max-w-lg rounded-xl border border-red-200 dark:border-red-800/40 bg-red-50 dark:bg-red-950/20 px-4 py-3 text-sm text-red-700 dark:text-red-400">
         {error}
       </div>
     );
@@ -192,13 +192,13 @@ export function TaskBoard() {
         <button
           type="button"
           onClick={() => openCreateTask("to_do")}
-          className="rounded-xl border border-sky-200 bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-700 hover:shadow-md"
+          className="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-700 dark:hover:bg-sky-500 hover:shadow-md cursor-pointer active:scale-[0.98]"
         >
           Create Task
         </button>
       </div>
 
-      <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6">
+      <div className="mt-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/20 p-6 transition-colors duration-200">
         <div className="grid gap-6 lg:grid-cols-3">
           {TASK_STATUSES.map((status, index) => (
             <TaskColumn
